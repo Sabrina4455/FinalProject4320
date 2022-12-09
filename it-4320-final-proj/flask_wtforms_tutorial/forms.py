@@ -8,6 +8,8 @@ from wtforms import (
 #from datetime import date
 #from wtforms.fields.html5 import DateField
 from wtforms.validators import DataRequired
+import string
+import random
 
 class UserOptionForm(FlaskForm):
     """Generate Your Graph."""
@@ -26,7 +28,7 @@ class UserOptionForm(FlaskForm):
 
 class ReservationForm(FlaskForm):
     """Reservation Form"""
-    
+    main = SubmitField("Main Menu", render_kw={'style': 'width: 125px; height: 40px; position: absolute; right: 250px; top: 125px;'})
     #THIS IS WHERE YOU WILL IMPLEMENT CODE TO POPULATE THE SYMBOL FIELD WITH STOCK OPTIONS
     first_name = StringField('First Name', [DataRequired()])
     last_name = StringField('Last Name', [DataRequired()])
@@ -61,7 +63,7 @@ class ReservationForm(FlaskForm):
 
 class AdminLoginForm(FlaskForm):
     """Admin login form"""
-    
+    main = SubmitField("Main Menu", render_kw={'style': 'width: 125px; height: 40px; position: absolute; right: 250px; top: 125px;'})
     #THIS IS WHERE YOU WILL IMPLEMENT CODE TO POPULATE THE SYMBOL FIELD WITH STOCK OPTIONS
     username = StringField('Username', [DataRequired()])
     password = StringField('Password', [DataRequired()])
