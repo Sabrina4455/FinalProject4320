@@ -34,7 +34,7 @@ def admin():
             for items in range(col):
                 temp[item].append("O")
         temp1=[]
-        f=open("test.txt",'r')
+        f=open("reservations.txt",'r')
         for item in f:
             x=item.split()
             y=x[1]
