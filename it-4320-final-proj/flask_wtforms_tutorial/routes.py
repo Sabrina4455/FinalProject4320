@@ -27,7 +27,7 @@ def admin():
     if request.method == 'POST' and form.validate_on_submit():
         sum1=0
         cm=get_cost_matrix()
-        row=12
+        row=13
         col=4
         temp=[[] for item in range(row)]
         for item in range(row):
@@ -44,7 +44,11 @@ def admin():
             temp2=[y,z]
             temp1.append(temp2)
         for item in temp1:
-            temp[item[0]][item[1]]="X"
+            temp5=[]
+            for i in item:
+                temp6=str(i).strip()
+                temp5.append(temp6)
+            temp[int(temp5[0])][int(temp5[1])]="X"
             sum1=sum1+(cm[item[0]][item[1]])
         username = request.form['username']
         password = request.form['password']
@@ -74,6 +78,6 @@ def reservations():
 
 
 def get_cost_matrix():
-    cost_matrix = [[100,75,50,100] for row in range(12)]
+    cost_matrix = [[100,75,50,100] for row in range(13)]
     return cost_matrix
 
