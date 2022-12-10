@@ -10,6 +10,24 @@
   <form method="POST" action="/">
     {{ form.main }}
   </form>
+  <h5>Seat 1 in Row 1 is the top left corner</h5>
+  <h5>X's are reserved O's are open</h5>
+  <style>
+    h5 {
+      font-weight: normal;
+    }
+  </style>
+  {% if matrix %}
+    <table>
+      {% for row in matrix %}
+        <tr>
+          {% for item in row %}
+            <td>{{ item }}</td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </table>
+    {% endif %}
   <form method="POST" action="/reservations">
       {{ form.csrf_token }}
       <div class="form-field">{{ form.first_name.label }} {{ form.first_name }}
