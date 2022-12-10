@@ -10,6 +10,37 @@
   <form method="POST" action="/">
     {{ form.main }}
   </form>
+    {% if matrix %}
+    <table>
+      {% for row in matrix %}
+        <tr>
+          {% for item in row %}
+            <td>{{ item }}</td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </table>
+    {% endif %}
+    <p></p>
+    {% if total %}
+  <h2 class="title">Sales: $
+  {{ total }}</p>
+  </h2>
+    {% endif %}
+  <p></p>
+    {% if bad %}
+  <p class="badlogin">{{ bad }}</p>
+  <style>
+    .badlogin {
+      width: 400px;
+      height: 40px;
+      background-color: red;
+      text-align: center;
+      line-height: 40px;
+      font-weight: bold;
+    }
+  </style>
+    {% endif %}
   <form method="POST" action="/admin">
       {{ form.csrf_token }}
       <div class="form-field">{{ form.username.label }} {{ form.username }}
